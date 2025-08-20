@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="sv" class="no-js" data-theme="sunset">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Våga Resa – Upptäck världen</title>
+  <meta name="description" content="Färgstark och inspirerande resesida med tips, filter och bokningsmodal." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23fff' d='M32 6l9 17 19 3-14 13 3 19-17-9-17 9 3-19L4 26l19-3z'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip-link" href="#main">Hoppa till innehåll</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#"><span aria-hidden="true">✦</span> Våga Resa</a>
+
+      <nav class="nav" aria-label="Huvudmeny">
+        <button class="nav__toggle" aria-expanded="false" aria-controls="menu" id="menuButton">
+          <span class="sr-only">Öppna meny</span>
+          ☰
+        </button>
+        <ul id="menu" class="nav__list">
+          <li><a href="#inspiration">Inspiration</a></li>
+          <li><a href="#destinations">Destinationer</a></li>
+          <li><a href="#tips">Resetips</a></li>
+          <li><button id="themeToggle" class="btn btn--ghost" type="button" aria-pressed="false">Byt tema</button></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Dekorativa färgformer -->
+    <div class="blobs" aria-hidden="true">
+      <div class="blob blob--1"></div>
+      <div class="blob blob--2"></div>
+      <div class="blob blob--3"></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero container">
+      <div class="hero__content">
+        <h1>Hitta din nästa <span class="highlight">äventyrsresa</span></h1>
+        <p>Från pastellstränder till neonupplysta storstäder – vi kuraterar resor som känns.</p>
+        <form id="searchForm" class="search" aria-label="Sök resor">
+          <label class="sr-only" for="q">Sök</label>
+          <input id="q" name="q" type="search" placeholder="Sök: Bali, alpint, street food..." />
+          <select id="mood" name="mood" aria-label="Vibe">
+            <option value="">Vibe</option>
+            <option>Avslappnat</option>
+            <option>Äventyr</option>
+            <option>Kultur</option>
+            <option>Nattliv</option>
+          </select>
+          <button class="btn" type="submit">Utforska</button>
+        </form>
+        <ul class="pills" role="list">
+          <li><button class="pill" data-filter="strand">🏝️ Strand</button></li>
+          <li><button class="pill" data-filter="stad">🏙️ Stad</button></li>
+          <li><button class="pill" data-filter="natur">⛰️ Natur</button></li>
+          <li><button class="pill" data-filter="mat">🍜 Mat</button></li>
+        </ul>
+      </div>
+      <figure class="hero__media">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop"
+             alt="Solnedgång över havet med mjuka färger" loading="lazy">
+        <figcaption>Solnedgångar och nya horisonter.</figcaption>
+      </figure>
+    </section>
+
+    <section id="inspiration" class="section container">
+      <header class="section__header">
+        <h2>Veckans färgkarta</h2>
+        <p>Färgerna sätter tonen. Välj en palett – få resor som matchar känslan.</p>
+      </header>
+      <div class="palette" id="palette">
+        <!-- fylld av JS -->
+      </div>
+    </section>
+
+    <section id="destinations" class="section section--alt">
+      <div class="container">
+        <header class="section__header flex">
+          <h2>Heta destinationer</h2>
+          <div class="filters">
+            <label class="sr-only" for="sort">Sortera</label>
+            <select id="sort" aria-label="Sortera">
+              <option value="pop">Mest populära</option>
+              <option value="price">Pris (låg → hög)</option>
+              <option value="name">Namn (A–Ö)</option>
+            </select>
+          </div>
+        </header>
+
+        <div class="grid" id="cards" aria-live="polite">
+          <!-- kort renderas av JS -->
+        </div>
+      </div>
+    </section>
+
+    <section id="tips" class="section container">
+      <header class="section__header">
+        <h2>Snabba resetips</h2>
+      </header>
+      <div class="tips">
+        <article class="tip">
+          <h3>Paket lätt, skala lager</h3>
+          <p>Tre lager slår en svullen resväska. Välj material som torkar snabbt.</p>
+        </article>
+        <article class="tip">
+          <h3>Ät där kön är längst</h3>
+          <p>Lokala favoriter känns igen på sorlet. Följ doften och folket.</p>
+        </article>
+        <article class="tip">
+          <h3>Gör plats för spontana omvägar</h3>
+          <p>Lämna 20% av schemat öppet. De bästa minnena planeras sällan.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>✦ Våga Resa — byggd med färg & nyfikenhet.</p>
+      <button class="btn btn--primary" id="bookBtn" type="button">Boka provresa</button>
+    </div>
+  </footer>
+
+  <!-- Bokningsmodal -->
+  <dialog id="booking" class="modal" aria-labelledby="bookingTitle">
+    <form method="dialog" class="modal__card" id="bookingForm">
+      <header class="modal__header">
+        <h3 id="bookingTitle">Boka en provresa</h3>
+        <button class="icon-btn" value="cancel" aria-label="Stäng">✕</button>
+      </header>
+      <div class="modal__body">
+        <label>
+          Namn
+          <input required name="name" autocomplete="name" />
+        </label>
+        <label>
+          E-post
+          <input required type="email" name="email" autocomplete="email" />
+        </label>
+        <label>
+          Destination
+          <input required name="destination" list="dest-list" placeholder="Välj från korten…" />
+        </label>
+        <datalist id="dest-list"><!-- fylls av JS --></datalist>
+        <label>
+          Budget (SEK)
+          <input required type="number" name="budget" min="1000" step="500" />
+        </label>
+        <label>
+          Avresa
+          <input required type="date" name="date" />
+        </label>
+      </div>
+      <footer class="modal__footer">
+        <button class="btn btn--ghost" value="cancel">Avbryt</button>
+        <button class="btn" value="confirm">Skicka</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
